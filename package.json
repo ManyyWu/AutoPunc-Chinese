@@ -10,9 +10,10 @@
   "categories": [
     "Other"
   ],
-  "extensionPack": ["draivin.hscopes"],
+  "extensionPack": [
+    "draivin.hscopes"
+  ],
   "activationEvents": [
-    "*",
     "onStartupFinished"
   ],
   "repository": {
@@ -22,9 +23,9 @@
   "icon": "icon.png",
   "main": "./out/extension.js",
   "contributes": {
-    "keybindings":{
-        "command": "autopunc.toggleCorrect",
-        "key": "Ctrl+Alt+N"
+    "keybindings": {
+      "command": "autopunc.toggleCorrect",
+      "key": "Ctrl+Alt+N"
     },
     "configuration": {
       "type": "object",
@@ -32,32 +33,51 @@
       "properties": {
         "autopunc.dictionary": {
           "type": "object",
-          "default":
-            {
-              "。": ".",
-              "，": ",",
-              "：": ":",
-              "；": ";",
-              "！": "!",
-              "“": "\"",
-              "”": "\"",
-              "‘": "'",
-              "’": "'",
-              "（": "(",
-              "）": ")",
-              "【": "[",
-              "】": "]",
-              "》": ">",
-              "《": "<",
-              "……": "^",
-              "￥": "$",
-              "、": "/",
-              "？": "?",
-              "·": "`",
-              "——": "_"
-            },
+          "default": {
+            "。": ".",
+            "，": ",",
+            "：": ":",
+            "；": ";",
+            "！": "!",
+            "“": "\"",
+            "”": "\"",
+            "‘": "'",
+            "’": "'",
+            "（": "(",
+            "）": ")",
+            "【": "[",
+            "】": "]",
+            "》": ">",
+            "《": "<",
+            "……": "^",
+            "￥": "$",
+            "、": "/",
+            "？": "?",
+            "·": "`",
+            "——": "_"
+          },
           "scope": "resource",
           "description": "标点符号替换表"
+        },
+        "autopunc.extensions": {
+          "type": "object",
+          "default": {
+            "md": true,
+            "js": true,
+            "ts": true,
+            "py": true,
+            "java": true,
+            "c": true,
+            "cpp": true,
+            "html": true,
+            "css": true,
+            "sh": true,
+            "rs": true,
+            "go": true,
+            "ini": true,
+            "toml": true
+          },
+          "description": "按文件后缀启用/禁用自动标点转换，键为扩展名，不带点。默认启用常用语言和文本文件，配置文件(如 json、yaml)不在默认启用范围。"
         }
       }
     }
@@ -76,7 +96,7 @@
     "@types/node": "^8.10.25",
     "glob": "^7.1.6",
     "mocha": "^7.0.1",
-    "typescript": "^3.6.5",
+    "typescript": "^3.8.2",
     "vscode": "^1.1.36",
     "vscode-test": "^1.3.0"
   }
